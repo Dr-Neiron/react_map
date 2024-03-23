@@ -1,4 +1,3 @@
-import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {APIProvider, Map } from '@vis.gl/react-google-maps';
@@ -27,9 +26,9 @@ function App() {
               defaultCenter={position}
               defaultZoom={16}
               gestureHandling={'greedy'}
-              disableDefaultUI={true}
+              disableDefaultUI={false}
             >
-              { <Polygon strokeWeight={1.5} paths={paths}/> }
+              { <Polygon strokeWeight={1.5} paths={paths} fillColor={"#FF0000"}/> }
             </Map>
           </APIProvider>
       </header>
