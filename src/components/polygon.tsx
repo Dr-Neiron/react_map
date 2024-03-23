@@ -8,7 +8,7 @@ import {
     useRef
   } from 'react';
   
-  import {GoogleMapsContext, useMapsLibrary} from '@vis.gl/react-google-maps';
+  import {GoogleMapsContext} from '@vis.gl/react-google-maps';
   
   import type {Ref} from 'react';
   
@@ -42,7 +42,6 @@ import {
       onDragEnd,
       onMouseOver,
       onMouseOut,
-    //   encodedPaths,
       paths,
       ...polygonOptions
     } = props;
@@ -56,8 +55,6 @@ import {
       onMouseOver,
       onMouseOut
     });
-  
-    const geometryLibrary = useMapsLibrary('geometry');
   
     const polygon = useRef(new google.maps.Polygon()).current;
     // update PolygonOptions (note the dependencies aren't properly checked
@@ -74,10 +71,6 @@ import {
       if (!paths) return;
       polygon.setPaths(paths);
     }, [polygon, paths]);
-    //   if (!encodedPaths || !geometryLibrary) return;
-    //   const paths = encodedPaths.map(path =>
-    //     geometryLibrary.encoding.decodePath(path)
-    //   );
   
     // create polygon instance and add to the map once the map is available
     useEffect(() => {
